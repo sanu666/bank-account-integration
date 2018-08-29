@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+  
+  "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+  
+  <hibernate-mapping>  
+  <class name="com.capgemini.pojo.BankAcc" table="BankAcc">  
+  <id name="accNo">  
+  <generator class="increment"></generator>  
+  </id>  
+  
+  <property name="accName"></property> 
+  <property name="accBal"></property>  
+  
+  <joined-subclass name="com.capgemini.pojo.SavingsAcc" table="SavingsAcc">  
+  <key column="accNo"></key>  
+  <property name="isSalAcc"></property>  
+  </joined-subclass>  
+   
+  <joined-subclass name="com.capgemini.pojo.CurrentAcc" table="CurrentAcc">  
+  <key column="accNo"></key>  
+  <property name="odLimit"></property>  
+  </joined-subclass>  
+  
+  </class>  
+  </hibernate-mapping>
